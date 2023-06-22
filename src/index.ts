@@ -34,8 +34,17 @@ export function createDataSet<Item extends PartItem<IdProp>, IdProp extends stri
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Graph3d {
-
+export interface Graph3d<Item extends PartItem<IdProp>, IdProp extends string = "id"> {
+    animatonStart(): void;
+    animationStop(): void;
+    getCameraPosition(): { horizontal: number, vertical: number, distance: number };
+    redraw(): void;
+    setData(data: DataSet<Item, IdProp>): void;
+    setOptions(options: Graph3dOptions): void;
+    setSize(width: string, height: string): void;
+    setCameraPosition(pos: { horizontal?: number, vertical?: number, distance?: number }): { horizontal: number, vertical: number, distance: number };
+    on(name: 'cameraPositionChange', callback: (event: { horizontal: number, vertical: number, distance: number }) => void): void;
+    on(name: 'click', callback: (event: { id: IdProp, x: number, y: number, z: number, style: number }) => void): void;
 }
 
 export interface Graph3dOptions {
@@ -95,7 +104,7 @@ export interface Graph3dOptions {
     legendLabel?: string;
 }
 
-export function createGraph3d<Item extends PartItem<IdProp>, IdProp extends string = "id">(container: HTMLElement, data: DataSet<Item, IdProp>, options?: Graph3dOptions): Graph3d {
+export function createGraph3d<Item extends PartItem<IdProp>, IdProp extends string = "id">(container: HTMLElement, data: DataSet<Item, IdProp>, options?: Graph3dOptions): Graph3d<Item, IdProp> {
     return new VisGraph3d(container, data, options);
 }
 
