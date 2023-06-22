@@ -44,7 +44,7 @@ export interface Graph3dOptions {
     animationPreload?: boolean;
 }
 
-export function createGraph3d<Item extends Partial<Record<P, OptId>>, P extends 'string'>(container: HTMLElement, data: DataSet<Item, P>, options?: Graph3dOptions): Graph3d {
+export function createGraph3d<Item extends PartItem<IdProp>, IdProp extends string = "id">(container: HTMLElement, data: DataSet<Item, IdProp>, options?: Graph3dOptions): Graph3d {
     return new VisGraph3d(container, data, options);
 }
 
