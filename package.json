@@ -1,6 +1,6 @@
 {
     "name": "@geometryzen/graph3d",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "My Library",
     "exports": {
         ".": {
