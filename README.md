@@ -7,3 +7,5 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+
+[![Graph3d](https://visjs.github.io/vis-graph3d/docs/graph3d/index.html)]
